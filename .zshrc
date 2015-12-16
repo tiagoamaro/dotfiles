@@ -36,6 +36,3 @@ export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-
-# Homebrew Github API
-export HOMEBREW_GITHUB_API_TOKEN=b9e99068a4375558a1928d77891a21b511c83b76
