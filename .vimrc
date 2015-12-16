@@ -32,7 +32,7 @@ set timeoutlen=50
 set nomodeline
 set selection=inclusive                      " Select to the end of line.
 set spelllang=en_au                          " Set spell check language.
-  " No annoying sound on errors
+" No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -73,7 +73,6 @@ syntax enable
 filetype indent on                " Enable file indenting.
 filetype plugin indent on         " Load syntax files for better indenting.
 
-
 " Foldings
 set foldmethod=syntax
 set foldlevelstart=99
@@ -82,49 +81,26 @@ set foldlevelstart=99
 let mapleader = ","
 let g:mapleader = ","
 
-" Multi Cursor
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_quit_key='<C-c>'
-
-
 " Mappings
 map <F7> mzgg=G`z<CR>            " fix indentation
 map <leader>h :noh<CR> " Disable highlighting when <leader>h is pressed
-map <leader>wt :call DeleteTrailingWS()<CR>
-  " Smart way to move between windows
+" Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-  " tabs
+" tabs
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
-  " move lines or blocks
-nnoremap <S-j> :m .+1<CR>==
+" move lines or blocks
 nnoremap <S-k> :m .-2<CR>==
-inoremap <S-j> <Esc>:m .+1<CR>==gi
-inoremap <S-k> <Esc>:m .-2<CR>==gi
-vnoremap <S-j> :m '>+1<CR>gv=gv
+nnoremap <S-j> :m .+1<CR>==
 vnoremap <S-k> :m '<-2<CR>gv=gv
-
-nmap s :w<CR>
-nmap q :bd<CR>
-nmap td :tabc<CR>
-nmap tb :TagbarToggle<CR>
-nmap bl :buffers<CR>:buffer<space>
-nmap ff :Grep<Space>
-nmap <leader>t :Gstatus<CR>
-nmap <leader>d :Gdiff<CR>
-nmap <leader>g :diffget<CR>
-nmap <leader>u :diffupdate<CR>
-nmap <C-f> /
-nmap <C-i> :tabp<CR>
-nmap <C-o> :tabn<CR>
-nmap <S-i> :bp<CR>
-nmap <S-o> :bn<CR>
-nmap <S-f> :NERDTreeFind<CR>
+vnoremap <S-j> :m '>+1<CR>gv=gv
+inoremap <S-k> <Esc>:m .-2<CR>==gi
+inoremap <S-j> <Esc>:m .+1<CR>==gi
 
 imap <Tab> <Space><Space>
 
@@ -135,15 +111,3 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-
