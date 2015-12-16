@@ -1,0 +1,5 @@
+- **Bower:** alfred://customsearch/Bower%20Search%20%7Bquery%7D/bower/utf8/noplus/http://bower.io/search/?q={query}
+- **Github:** alfred://customsearch/Github/github/utf8/plus/https://github.com/search?q={query}
+- **Mercado Livre:** alfred://customsearch/Mercado%20Livre/mercado/utf8/noplus/http://lista.mercadolivre.com.br/{query}
+- **RubyGems:** alfred://customsearch/Ruby%20Gems/ruby/utf8/noplus/https://rubygems.org/search?query={query}
+- **Sublime Package Control:** alfred://customsearch/Sublime%20Package%20Control%20Search/subl/utf8/noplus/https://packagecontrol.io/search/{query}
