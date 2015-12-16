@@ -1,0 +1,19 @@
+- AlignTab
+- All Autocomplete
+- BracketHighlighter
+- Centurion
+- CoffeeScript
+- ColorHighlighter
+- ColorPicker
+- Decent Color Scheme
+- Emmet
+- ERB Snippets
+- Highlight
+- HTML-CSS-JS Prettify
+- Modific
+- OmniMarkupPreviewer
+- ProductiveSnippetsRuby
+- [SetiUI-Icons-Sublime - SetiUI Icons on any Theme](https://github.com/mrmartineau/SetiUI-Icons-Sublime)
+- Text Pastry
+- TodoReview
+- Trailing Spaces
