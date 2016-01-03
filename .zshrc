@@ -33,6 +33,9 @@ export LC_ALL=en_US.UTF-8
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 # RVM
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# export PATH="$PATH:$HOME/.rvm/bin"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+# chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh # Enable Auto Switching rubies based on .ruby-version files
