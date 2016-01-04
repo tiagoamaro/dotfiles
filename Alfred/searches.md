@@ -3,3 +3,4 @@
 - **Mercado Livre:** alfred://customsearch/Mercado%20Livre/mercado/utf8/noplus/http://lista.mercadolivre.com.br/{query}
 - **RubyGems:** alfred://customsearch/Ruby%20Gems/ruby/utf8/noplus/https://rubygems.org/search?query={query}
 - **Sublime Package Control:** alfred://customsearch/Sublime%20Package%20Control%20Search/subl/utf8/noplus/https://packagecontrol.io/search/{query}
+- **MozillaDeveloperNetwork:** alfred://customsearch/MozillaDeveloperNetwork/mdn/utf8/plus/https://developer.mozilla.org/en-US/search?q={query}
