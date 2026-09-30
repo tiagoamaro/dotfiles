@@ -6,6 +6,7 @@
 [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]] && source /opt/homebrew/etc/profile.d/bash_completion.sh
 
 shopt -s histappend checkwinsize autocd globstar
+bind "set completion-ignore-case on"
 HISTSIZE=50000
 HISTFILESIZE=50000
 HISTCONTROL=ignoreboth:erasedups
