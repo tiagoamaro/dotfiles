@@ -1,7 +1,8 @@
 [[ $- == *i* ]] || return 0
 
 # ble.sh: fish-style autosuggestions + syntax highlighting (zsh-autosuggestions/zsh-syntax-highlighting equivalent)
-[[ -f ~/.local/share/blesh/ble.sh ]] && source ~/.local/share/blesh/ble.sh --noattach
+# Skipped in JetBrains terminals: their shell integration prints ble.sh's placeholder PS1.
+[[ $TERMINAL_EMULATOR != JetBrains-JediTerm && -f ~/.local/share/blesh/ble.sh ]] && source ~/.local/share/blesh/ble.sh --noattach
 
 [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]] && source /opt/homebrew/etc/profile.d/bash_completion.sh
 
