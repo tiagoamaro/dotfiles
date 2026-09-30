@@ -1,4 +1,4 @@
-[[ $- == *i* ]] || return
+[[ $- == *i* ]] || return 0
 
 # ble.sh: fish-style autosuggestions + syntax highlighting (zsh-autosuggestions/zsh-syntax-highlighting equivalent)
 [[ -f ~/.local/share/blesh/ble.sh ]] && source ~/.local/share/blesh/ble.sh --noattach
@@ -103,4 +103,4 @@ eval "$(direnv hook bash)"
 # Runs first so $? is still the last command's status.
 PROMPT_COMMAND="__last_exit=\$?; [[ \$__last_exit == 0 ]] && __last_exit=; ${PROMPT_COMMAND}"
 
-[[ ${BLE_VERSION-} ]] && ble-attach
+[[ ! ${BLE_VERSION-} ]] || ble-attach
