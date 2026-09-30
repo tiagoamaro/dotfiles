@@ -4,16 +4,7 @@
 "        AUTHOR: Tiago Amaro (github.com/tiagoamaro)
 " ------------------------------------------------------------------------------
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-
 set nocompatible
-filetype off
-
-" let Vundle manage Vundle
-call vundle#rc()
-" required!
-Plugin 'gmarik/vundle'
 
 " General Settings
 set undolevels=1000                          " Large undo levels.
