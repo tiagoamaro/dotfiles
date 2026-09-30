@@ -88,6 +88,14 @@ opencode2-personal() {
     XDG_STATE_HOME="$HOME/.local/state/opencode2-personal" \
     command opencode2 "${args[@]}"
 }
+# Usage: nosleep [minutes], default 60. One root process so the re-enable doesn't need sudo after its cache expires.
+nosleep() {
+  local minutes="${1:-60}"
+  [[ "$minutes" =~ ^[0-9]+$ ]] || { echo "usage: nosleep [minutes]" >&2; return 1; }
+  sudo -v || return 1
+  sudo nohup sh -c "pmset -a disablesleep 1; sleep $((minutes * 60)); pmset -a disablesleep 0" >/dev/null 2>&1 &
+  echo "Sleep disabled for $minutes min"
+}
 alias shrug="echo \"\\\`¯\_(ツ)_/¯\\\`\" | pbcopy"
 
 export LANGUAGE=en_US.UTF-8
