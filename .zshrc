@@ -80,6 +80,8 @@ claude-personal() {
   "$HOME/.claude/scripts/sync-claude-personal.sh" || echo "claude-personal: config sync failed" >&2
   CLAUDE_CONFIG_DIR="$HOME/.claude-personal" command claude "$@"
 }
+alias claudet='command claude --model opus --effort medium --name thinker'
+alias claudep='command claude --model haiku --name printer'
 alias opencode-personal='XDG_DATA_HOME="$HOME/.local/share/opencode-personal-data" command opencode'
 opencode2-personal() {
   local -a args=("$@")
