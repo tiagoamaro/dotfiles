@@ -112,3 +112,18 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="$HOME/.opencode/bin:$HOME/.local/bin:$PATH:$HOME/.lmstudio/bin"
 
 eval "$(direnv hook zsh)"
+
+# Two Claude sessions in one tmux window: lead (deep) and bso (fast). ctrl+a swaps.
+claudeb() {
+  local s="claudeb-${PWD:t}"
+  local t=(tmux -L claudeb -f ~/.config/tmux/claudeb.conf)
+  if ! $t has-session -t "=$s" 2>/dev/null; then
+    $t new-session -d -s "$s" -c "$PWD" "claude -n lead ${(q)@}" \; \
+      select-pane -T lead \; \
+      split-window -h -c "$PWD" "claude -n bso --model haiku --effort medium --settings '{\"theme\":\"custom:model-green\"}'" \; \
+      select-pane -T bso \; \
+      select-pane -L \; \
+      resize-pane -Z
+  fi
+  $t attach -t "=$s"
+}
