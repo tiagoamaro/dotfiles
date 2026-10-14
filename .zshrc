@@ -76,6 +76,12 @@ alias l='ls'
 alias ll='ls -lash'
 alias npm-cleanup='npm dedupe && npm prune && npm install'
 alias mine='/Applications/RubyMine.app/Contents/MacOS/rubymine'
+git-diff-open-mine() {
+  local base=${1:-$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null || echo main)}
+  local files=(${(f)"$(git diff "$(git merge-base HEAD "$base")" --name-only --relative --diff-filter=d)"})
+  (( $#files )) || { echo "no changed files vs $base"; return 1 }
+  mine $files
+}
 claude-personal() {
   "$HOME/.claude/scripts/sync-claude-personal.sh" || echo "claude-personal: config sync failed" >&2
   CLAUDE_CONFIG_DIR="$HOME/.claude-personal" command claude "$@"
