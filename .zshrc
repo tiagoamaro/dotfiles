@@ -121,8 +121,10 @@ eval "$(direnv hook zsh)"
 
 # Two Claude sessions in one tmux window: lead (deep) and bso (fast). ctrl+a swaps.
 claudeb() {
-  local s="claudeb-${PWD:t}"
-  local t=(tmux -L claudeb -f ~/.config/tmux/claudeb.conf)
+  # Own socket per config dir: a tmux server keeps the env it started with.
+  local n="claudeb${CLAUDE_CONFIG_DIR:+-personal}"
+  local s="$n-${PWD:t}"
+  local t=(tmux -L $n -f ~/.config/tmux/claudeb.conf)
   if ! $t has-session -t "=$s" 2>/dev/null; then
     $t new-session -d -s "$s" -c "$PWD" "claude -n lead ${(q)@}" \; \
       select-pane -T lead \; \
@@ -132,4 +134,8 @@ claudeb() {
       resize-pane -Z
   fi
   $t attach -t "=$s"
+}
+claudeb-personal() {
+  "$HOME/.claude/scripts/sync-claude-personal.sh" || echo "claudeb-personal: config sync failed" >&2
+  CLAUDE_CONFIG_DIR="$HOME/.claude-personal" claudeb "$@"
 }
